@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "http://www.sqledt.com/DotNetSample/api",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug"
+  }
+}

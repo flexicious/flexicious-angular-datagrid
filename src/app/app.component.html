@@ -1,0 +1,92 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>My First Angular 2 TreeGrid</h1>
+
+
+<div class="row">
+
+
+  <div id="gridContainer" fd-grid="" [(model)]="gridOptions" style="height: 300px;width: 100%;"
+
+       xicreation-complete="onGridCreationComplete"
+       xialternating-Item-Colors="#ffffee"
+       xienable-export="true"
+
+       xienable-copy="true"
+
+       xiforce-pagerrow="true"
+
+       xipage-size="20"
+
+       xienable-multi-column-sort="true"
+
+       xienable-filters="true"
+
+       xino-data-message=""
+
+       xihorizontal-scroll-policy="auto"
+
+       xienable-footers="false">
+
+
+    <level xienable-paging="true" xipage-size="25" xienable-filters="true" xiselected-key-field="employeeId"
+
+           xienable-footers="false"
+
+           xireuse-previous-level-columns="true" xichildren-field="PositionDataChildFXItem"
+           xifilter-page-sort-change="filterPageSortChangeHandler" xifilter-page-sort-mode="server">
+
+      <columns>
+
+        <column xitype="checkbox"></column>
+
+
+
+
+        <column xidata-field="firstName" xiheader-text="First Name" xiheader-align="middle" xifilter-control="TextInput"
+                xifilter-operation="Contains"></column>
+
+        <column xidata-field="lastName" xiheader-text="Last Name" xiheader-align="middle" xifilter-control="TextInput"
+                xifilter-operation="Contains"></column>
+
+        <column xidata-field="department.departmentId" xiheader-text="Department" xiheader-align="middle"
+                xifilter-control="MultiSelectComboBox" xifilter-combobox-build-from-grid="false"
+
+                xifilter-combobox-width="150" xilabel-function="getDepartment"></column>
+
+
+        <column xidata-field="phoneNumber" xiheader-text="Phone" xiheader-align="middle" xifilter-control="TextInput"
+                xifilter-operation="Contains"></column>
+
+        <column xidata-field="stateCode" xiheader-text="State" xiheader-align="middle" xifilter-control="ComboBox"
+                xifilter-combobox-build-from-grid="true" xifilter-combobox-width="150"></column>
+
+        <column xidata-field="hireDate" xiheader-text="Hired" xifilter-control="DateComboBox"
+
+                itemeditor="flexiciousNmsp.DatePicker" xicolumn-width-mode="fitToContent"></column>
+
+
+        <column xiheader-align="middle" xisort-numeric="true" xidata-field="annualSalary" xiheader-text="Annual Salary"
+
+                xifilter-control="NumericRangeBox"
+                xilabel-function="flexiciousNmsp.UIUtils.dataGridFormatCurrencyLabelFunction"></column>
+
+        <column xidata-field="isActive.toString()" xiheader-text="Active" xifilter-control="TriStateCheckBox"
+                xifilter-operation="Equals" xilabel-function="getActive"></column>
+
+      </columns>
+
+    </level>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
