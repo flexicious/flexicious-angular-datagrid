@@ -24,14 +24,15 @@
        xino-data-message=""
 
        xihorizontal-scroll-policy="auto"
-
+       xieditable="true"
+       xiselection-mode="singleRow"
        xienable-footers="false">
 
 
     <level xienable-paging="true" xipage-size="25" xienable-filters="true" xiselected-key-field="employeeId"
 
-           xienable-footers="false"
-
+           xienable-footers="false"  
+        
            xireuse-previous-level-columns="true" xichildren-field="PositionDataChildFXItem"
            xifilter-page-sort-change="filterPageSortChangeHandler" xifilter-page-sort-mode="server">
 
@@ -43,9 +44,9 @@
 
 
         <column xidata-field="firstName" xiheader-text="First Name" xiheader-align="middle" xifilter-control="TextInput"
-                xifilter-operation="Contains"></column>
+                xifilter-operation="Contains" ></column>
 
-        <column xidata-field="lastName" xiheader-text="Last Name" xiheader-align="middle" xifilter-control="TextInput"
+        <column xidata-field="lastName" xieditable="false" xiheader-text="Last Name" xiheader-align="middle" xifilter-control="TextInput"
                 xifilter-operation="Contains"></column>
 
         <column xidata-field="department.departmentId" xiheader-text="Department" xiheader-align="middle"

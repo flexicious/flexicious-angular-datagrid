@@ -17,6 +17,10 @@ export class AppComponent {
               private  DepartmentSrv: DepartmentService,
               private  StateSrv: StateService) {
 
+                window.setTimeout(()=>{
+                    var grid = document.getElementById("gridContainer")["component"];
+                    alert("This is how you can access the grid outside an event handler" + grid.configuration)
+                },2000);
   }
 
   onGridCreationComplete(event) {
