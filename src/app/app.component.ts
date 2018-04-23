@@ -23,6 +23,12 @@ export class AppComponent {
                 },2000);
   }
 
+  getLabel(item, col) {
+    const itemIdx = col.getLevel().grid.getDataProvider().indexOf(item);
+    const shape = itemIdx % 7 === 0 ? 'triangle' : itemIdx % 2 === 0 ? 'square' : 'circle';
+    return '<img style="width: 16px; height: 16px" src="assets/css/images/' + shape + '256.svg">';
+  }
+
   onGridCreationComplete(event) {
 
     var grid = event.target;
