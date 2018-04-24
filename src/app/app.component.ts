@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {EmployeeService} from "./apis/employeeService";
 import {DepartmentService} from "./apis/departmentService";
 import {StateService} from "./apis/stateService";
+import { SvgStaticService } from './apis/SvgStaticService';
 
 declare var flexiciousNmsp: any;
 
@@ -15,18 +16,19 @@ export class AppComponent {
 
   constructor(private  EmployeeSrv: EmployeeService,
               private  DepartmentSrv: DepartmentService,
-              private  StateSrv: StateService) {
+              private  StateSrv: StateService,
+              private  SvgSrv: SvgStaticService) {
 
-                window.setTimeout(()=>{
-                    var grid = document.getElementById("gridContainer")["component"];
-                    alert("This is how you can access the grid outside an event handler" + grid.configuration)
-                },2000);
+                window.setTimeout(() => {
+                    const grid = document.getElementById('gridContainer')['component'];
+                    alert('This is how you can access the grid outside an event handler' + grid.configuration);
+                }, 2000);
   }
 
-  getLabel(item, col) {
+  getLabel = (item, col) => {
     const itemIdx = col.getLevel().grid.getDataProvider().indexOf(item);
     const shape = itemIdx % 7 === 0 ? 'triangle' : itemIdx % 2 === 0 ? 'square' : 'circle';
-    return '<img style="width: 16px; height: 16px" src="assets/css/images/' + shape + '256.svg">';
+    return this.SvgSrv.svgs[shape];
   }
 
   onGridCreationComplete(event) {

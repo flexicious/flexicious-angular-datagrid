@@ -8,6 +8,7 @@ import {EmployeeService} from "./apis/employeeService";
 import {DepartmentService} from "./apis/departmentService";
 import {StateService} from "./apis/stateService";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { SvgStaticService } from './apis/SvgStaticService';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 
     EmployeeService,
     DepartmentService,
-    StateService
+    StateService,
+    SvgStaticService
   ],
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
