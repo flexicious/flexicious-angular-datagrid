@@ -9,6 +9,7 @@ import {DepartmentService} from "./apis/departmentService";
 import {StateService} from "./apis/stateService";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { SvgStaticService } from './apis/SvgStaticService';
+import ImageRenderer from './ImageRenderer';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SvgStaticService } from './apis/SvgStaticService';
     EmployeeService,
     DepartmentService,
     StateService,
-    SvgStaticService
+    SvgStaticService,
+    ImageRenderer
   ],
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
