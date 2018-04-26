@@ -31,6 +31,13 @@ declare var flexiciousNmsp: any;
         this.addEventListener(this, flxConstants.EVENT_MOUSE_OUT, this.onMouseOut);
 
         this.svgSrv = new flexiciousNmsp.ItemRenderers_ImageRenderer.SvgService();
+
+        this.popup = new flexiciousNmsp.UIComponent('div');
+        this.popup.setWidth(120);
+        this.popup.setHeight(30);
+
+        this.popup.domElement.style.background = '#666666';
+        this.popup.domElement.style.color = '#fff';
     };
     flexiciousNmsp.ItemRenderers_ImageRenderer = ImageRenderer; // add to name space
     ImageRenderer.SvgService = SvgStaticService;
@@ -62,6 +69,9 @@ declare var flexiciousNmsp: any;
         this.domElement.style.opacity = 0.4;
         this.domElement.style.left = (parseFloat(this.domElement.style.left) + 2) + 'px';
         this.domElement.style.top = (parseFloat(this.domElement.style.top) + 2) + 'px';
+
+        // tslint:disable-next-line:max-line-length
+        this.popup.domElement.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%">' + this.svgSrv.svgs[shape] + '<span>&nbsp;&nbsp;&nbsp;' + shape + '</span></div>';
     };
     /**
     * This event is dispatched when the user clicks on the icon. The event is actually a flexicious event, and has a trigger event
@@ -81,6 +91,12 @@ declare var flexiciousNmsp: any;
         this.domElement.style.zoom = 1.2;
         this.domElement.style.left = (parseFloat(this.domElement.style.left) - 2) + 'px';
         this.domElement.style.top = (parseFloat(this.domElement.style.top) - 2) + 'px';
+
+        const cell = this.parent;
+        const col = cell.getColumn();
+
+        cell.level.grid.showTooltip(cell, this.popup, cell.rowInfo.getData());
+        this.popup.domElement.style.top = (parseFloat(this.popup.domElement.style.top) - cell.height) + 'px';
     };
 
     ImageRenderer.prototype.onMouseOut = function (evt) {
@@ -88,6 +104,8 @@ declare var flexiciousNmsp: any;
         this.domElement.style.zoom = 1;
         this.domElement.style.left = (parseFloat(this.domElement.style.left) + 2) + 'px';
         this.domElement.style.top = (parseFloat(this.domElement.style.top) + 2) + 'px';
+
+        this.parent.level.grid.hideTooltip();
     };
     // tslint:disable-next-line:max-line-length
     // This sets  the inner html, and grid will try to set it. Since we are an input field, IE 8 will complain. So we ignore it since we dont need it anyway.
