@@ -31,6 +31,11 @@ export class AppComponent {
     return this.SvgSrv.svgs[shape];
   }
 
+  onItemRightClick(event) {
+    const grid = event.target;
+    grid.setSelectedItem(grid.currentCell.rowInfo.rowPositionInfo.rowData);
+  }
+
   onGridCreationComplete(event) {
 
     var grid = event.target;
