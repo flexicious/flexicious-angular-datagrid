@@ -102,7 +102,7 @@ export class AppComponent {
   gridOptions = {
     dataProvider: [],
     delegate: this,
-    styles: flexiciousNmsp.UIUtils.getThemeById('iTunes').styles
+    styles: flexiciousNmsp.UIUtils.getThemeById('redAndBlack').styles
   }
 
   

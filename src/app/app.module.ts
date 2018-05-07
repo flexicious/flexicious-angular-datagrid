@@ -10,6 +10,7 @@ import {StateService} from "./apis/stateService";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { SvgStaticService } from './apis/SvgStaticService';
 import ImageRenderer from './ImageRenderer';
+import DummyThemes from './dummy.theme';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import ImageRenderer from './ImageRenderer';
     DepartmentService,
     StateService,
     SvgStaticService,
-    ImageRenderer
+    ImageRenderer,
+    DummyThemes
   ],
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
