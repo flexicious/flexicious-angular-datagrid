@@ -23,6 +23,8 @@ export class AppComponent {
                     const grid = document.getElementById('gridContainer')['component'];
                     alert('This is how you can access the grid outside an event handler' + grid.configuration);
                 }, 2000);
+
+                this.loadiTunesStyle = this.loadiTunesStyle.bind(this);
   }
 
   getLabel = (item, col) => {
@@ -76,7 +78,7 @@ export class AppComponent {
 
 
     grid.validateNow();
-  };
+  }
 
   filterPageSortChangeHandler(evt1) {
     var grid = evt1.target;
@@ -105,5 +107,15 @@ export class AppComponent {
     styles: flexiciousNmsp.UIUtils.getThemeById('redAndBlack').styles
   }
 
-  
+  loadiTunesStyle(event) {
+    const grid = document.getElementById('gridContainer')['component'];
+    const iPhoneStyles = flexiciousNmsp.UIUtils.getThemeById('iTunes').styles;
+
+    for (const prop in iPhoneStyles) {
+      if (prop) {
+        flexiciousNmsp.UIUtils.checkSetterAndApply(grid, prop, iPhoneStyles[prop]);
+      }
+    }
+    grid.rebuild();
+  }
 }

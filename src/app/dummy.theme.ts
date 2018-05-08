@@ -179,7 +179,7 @@ flexiciousNmsp.themes.push({
 
 });
 
-export default class DummyThemes { 
+export default class DummyThemes {
     constructor() {
     }
 }
